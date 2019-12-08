@@ -3,22 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package admin;
+package evaluator;
 
 /**
  *
  * @author VASPAR
  */
 public class Student {
-    public int no;
-    public String id,name;
 
-    public int getNo() {
-        return no;
+    public int marks;
+    public String id, name;
+
+    public Student() {
     }
 
-    public void setNo(int no) {
-        this.no = no;
+    public Student(int marks, String id, String name) {
+        this.marks = marks;
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getMarks() {
+        return marks;
+    }
+
+    public void setMarks(int marks) {
+        this.marks = marks;
     }
 
     public String getId() {
@@ -37,13 +47,5 @@ public class Student {
         this.name = name;
     }
 
-    public Student(int no, String id, String name) {
-        this.no = no;
-        this.id = id;
-        this.name = name;
-    }
-
-    public Student() {
-    }
     
 }

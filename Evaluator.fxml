@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.PrefixSelectionComboBox?>
+
+<SplitPane id="split_pane" fx:id="split_pane" cache="true" cacheHint="SCALE_AND_ROTATE" dividerPositions="0.10964550700741962" maxWidth="1268.0" prefHeight="856.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evaluator.EvaluatorController">
+    <items>
+        <AnchorPane id="left_of_split" fx:id="left_of_split" maxWidth="800.0" minHeight="0.0" prefHeight="854.0" prefWidth="48.0" SplitPane.resizableWithParent="false">
+            <effect>
+              
+            </effect>
+            <children>
+                <VBox id="left_of_split_vbox" fx:id="left_of_split_vbox" focusTraversable="true" layoutY="-1.0" prefHeight="856.0" prefWidth="129.0" style="-fx-background-color: TRANSPARENT;" SplitPane.resizableWithParent="false">
+                    <children>
+                        <Button id="pedagogy" fx:id="pedagogy" contentDisplay="TOP" minWidth="-Infinity" mnemonicParsing="false" onAction="#handlePedagogyAction" prefHeight="118.0" prefWidth="129.0" styleClass="left_of_split_buttons" text="Pedagogy">
+                            <graphic>
+                                <FontAwesomeIconView fill="#050236" fontSmoothingType="LCD" glyphName="BOOK" size="50" styleClass="left_of_split_icons" />
+                            </graphic>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </Button>
+                        <Button id="evaluate" fx:id="evaluate" contentDisplay="TOP" focusTraversable="false" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleEvaluateAction" prefHeight="118.0" prefWidth="129.0" styleClass="left_of_split_buttons" text="Evaluate" textFill="#190661">
+                            <font>
+                                <Font name="Calibri Bold" size="22.0" />
+                            </font>
+                     
+                            <graphic>
+                                <MaterialIconView fill="#050236" fontSmoothingType="LCD" glyphName="ASSESSMENT" size="50.0" styleClass="left_of_split_icons" />
+                            </graphic>
+                        </Button>
+                        <Button id="report" fx:id="report" contentDisplay="TOP" focusTraversable="false" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleReportAction" prefHeight="118.0" prefWidth="129.0" styleClass="left_of_split_buttons" text="Report" textFill="#190661">
+                            <font>
+                                <Font name="Calibri Bold" size="22.0" />
+                            </font>
+                     
+                            <graphic>
+                                <MaterialDesignIconView fill="#050236" glyphName="FILE" size="50.0" styleClass="left_of_split_icons" />
+                            </graphic>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <AnchorPane id="right_of_split" fx:id="right_of_split" maxWidth="1076.0" minHeight="0.0" prefHeight="854.0" prefWidth="1076.0" SplitPane.resizableWithParent="false">
+            <children>
+                <AnchorPane id="pedagogy_anchor_pane" fx:id="pedagogy_anchor_pane" disable="true" prefHeight="854.0" prefWidth="1110.0" visible="false">
+                    <children>
+                        <PrefixSelectionComboBox id="pd_college_combo_box" fx:id="pd_college_combo_box" editable="true" focusTraversable="false" layoutX="27.0" layoutY="14.0" onAction="#onCollegeSelection" prefHeight="31.0" prefWidth="271.0" promptText="Collge" />
+                        <PrefixSelectionComboBox id="pd_branch_combo_box" fx:id="pd_branch_combo_box" editable="true" focusTraversable="false" layoutX="27.0" layoutY="55.0" onAction="#onBranchSelection" prefHeight="31.0" prefWidth="271.0" promptText="Branch" />
+                        <Button id="onDone" fx:id="onDone" focusTraversable="false" layoutX="972.0" layoutY="783.0" mnemonicParsing="false" onAction="#onDone" prefHeight="43.0" prefWidth="95.0" text="Done" />
+                        <PrefixSelectionComboBox id="pd_sub_combo_box" fx:id="pd_sub_combo_box" editable="true" focusTraversable="false" layoutX="789.0" layoutY="55.0" onAction="#onSubjectSelection" prefHeight="31.0" prefWidth="271.0" promptText="Subject" />
+                        <Label id="pd_tlabelInt1" fx:id="pd_tlabelInt1" layoutX="27.0" layoutY="296.0" text="Internal-1" />
+                        <TextField id="pd_tInt1M" fx:id="pd_tInt1M" layoutX="174.0" layoutY="291.0" onAction="#onTextEnter" onKeyPressed="#onPdTInt1MKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="pd_tlabelInt2" fx:id="pd_tlabelInt2" layoutX="27.0" layoutY="354.0" text="Internal-2" />
+                        <TextField id="pd_tInt2M" fx:id="pd_tInt2M" layoutX="174.0" layoutY="349.0" onAction="#onTextEnter" onKeyPressed="#onPdTInt2MKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="pd_tlabelAtd" fx:id="pd_tlabelAtd" layoutX="27.0" layoutY="412.0" text="Attendance" />
+                        <TextField id="pd_tAtdM" fx:id="pd_tAtdM" layoutX="174.0" layoutY="407.0" onAction="#onTextEnter" onKeyPressed="#onPdTAtdMKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="labelTOutOf" fx:id="labelTOutOf" layoutX="418.0" layoutY="228.0" prefHeight="31.0" prefWidth="44.0" text="/30" />
+                        <Label id="labelDeadline" fx:id="labelDeadline" layoutX="27.0" layoutY="102.0" prefHeight="21.0" prefWidth="76.0" text="Deadline: " />
+                        <PrefixSelectionComboBox id="pd_sem_combo_box" fx:id="pd_sem_combo_box" editable="true" focusTraversable="false" layoutX="789.0" layoutY="14.0" onAction="#onSemSelection" prefHeight="14.0" prefWidth="88.0" promptText="Sem" />
+                        <TextField id="pd_tInt1Pr" fx:id="pd_tInt1Pr" layoutX="258.0" layoutY="291.0" onAction="#onTextEnter" onKeyPressed="#onPdTInt1PrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <TextField id="pd_tInt2Pr" fx:id="pd_tInt2Pr" layoutX="258.0" layoutY="349.0" onAction="#onTextEnter" onKeyPressed="#onPdTInt2PrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <TextField id="pd_tAtdPr" fx:id="pd_tAtdPr" layoutX="258.0" layoutY="407.0" onAction="#onTextEnter" onKeyPressed="#onPdTAtdPrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <Label id="pd_tlabelAsg" fx:id="pd_tlabelAsg" layoutX="27.0" layoutY="470.0" text="Assignment" />
+                        <TextField id="pd_tAsgM" fx:id="pd_tAsgM" layoutX="174.0" layoutY="465.0" onAction="#onTextEnter" onKeyPressed="#onPdTAsgMKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="pd_tlabelQz" fx:id="pd_tlabelQz" layoutX="27.0" layoutY="528.0" text="Quiz" />
+                        <TextField id="pd_tQzM" fx:id="pd_tQzM" layoutX="174.0" layoutY="523.0" onAction="#onTextEnter" onKeyPressed="#onPdTQzMKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="pd_tlabelProj" fx:id="pd_tlabelProj" layoutX="27.0" layoutY="586.0" text="Project" />
+                        <TextField id="pd_tProjM" fx:id="pd_tProjM" layoutX="174.0" layoutY="581.0" onAction="#onTextEnter" onKeyPressed="#onPdTProjMKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <TextField id="pd_tAsgPr" fx:id="pd_tAsgPr" layoutX="258.0" layoutY="465.0" onAction="#onTextEnter" onKeyPressed="#onPdTAsgPrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <TextField id="pd_tQzPr" fx:id="pd_tQzPr" layoutX="258.0" layoutY="523.0" onAction="#onTextEnter" onKeyPressed="#onPdTQzPrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <TextField id="pd_tProjPr" fx:id="pd_tProjPr" layoutX="258.0" layoutY="581.0" onAction="#onTextEnter" onKeyPressed="#onPdTProjPrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <Label id="pd_tlabelPres" fx:id="pd_tlabelPres" layoutX="27.0" layoutY="644.0" text="Presentation" />
+                        <TextField id="pd_tPresM" fx:id="pd_tPresM" layoutX="174.0" layoutY="639.0" onAction="#onTextEnter" onKeyPressed="#onPdTPresMKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <TextField id="pd_tPresPr" fx:id="pd_tPresPr" layoutX="258.0" layoutY="639.0" onAction="#onTextEnter" onKeyPressed="#onPdTPresPrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <Label id="pd_plabelInt1" fx:id="pd_plabelInt1" layoutX="602.0" layoutY="296.0" text="Internal-1" />
+                        <TextField id="pd_pInt1M" fx:id="pd_pInt1M" layoutX="749.0" layoutY="291.0" onAction="#onTextEnter" onKeyPressed="#onPdPInt1MKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="pd_plabelInt2" fx:id="pd_plabelInt2" layoutX="602.0" layoutY="354.0" text="Internal-2" />
+                        <TextField id="pd_pInt2M" fx:id="pd_pInt2M" layoutX="749.0" layoutY="349.0" onAction="#onTextEnter" onKeyPressed="#onPdPInt2MKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="pd_plabelAtd" fx:id="pd_plabelAtd" layoutX="602.0" layoutY="412.0" text="Attendance" />
+                        <TextField id="pd_pAtdM" fx:id="pd_pAtdM" layoutX="749.0" layoutY="407.0" onAction="#onTextEnter" onKeyPressed="#onPdPAtdMKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <TextField id="pd_pInt1Pr" fx:id="pd_pInt1Pr" layoutX="833.0" layoutY="291.0" onAction="#onTextEnter" onKeyPressed="#onPdPInt1PrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <TextField id="pd_pInt2Pr" fx:id="pd_pInt2Pr" layoutX="833.0" layoutY="349.0" onAction="#onTextEnter" onKeyPressed="#onPdPInt2PrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <TextField id="pd_pAtdPr" fx:id="pd_pAtdPr" layoutX="833.0" layoutY="407.0" onAction="#onTextEnter" onKeyPressed="#onPdPAtdPrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <Label id="pd_plabelAsg" fx:id="pd_plabelAsg" layoutX="602.0" layoutY="470.0" text="Assignment" />
+                        <TextField id="pd_pAsgM" fx:id="pd_pAsgM" layoutX="749.0" layoutY="465.0" onAction="#onTextEnter" onKeyPressed="#onPdPAsgMKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="pd_plabelQz" fx:id="pd_plabelQz" layoutX="602.0" layoutY="528.0" text="Quiz" />
+                        <TextField id="pd_pQzM" fx:id="pd_pQzM" layoutX="749.0" layoutY="523.0" onAction="#onTextEnter" onKeyPressed="#onPdPQzMKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="pd_plabelProj" fx:id="pd_plabelProj" layoutX="602.0" layoutY="586.0" text="Project" />
+                        <TextField id="pd_pProjM" fx:id="pd_pProjM" layoutX="749.0" layoutY="581.0" onAction="#onTextEnter" onKeyPressed="#onPdPProjMKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <TextField id="pd_pAsgPr" fx:id="pd_pAsgPr" layoutX="833.0" layoutY="465.0" onAction="#onTextEnter" onKeyPressed="#onPdPAsgPrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <TextField id="pd_pQzPr" fx:id="pd_pQzPr" layoutX="833.0" layoutY="523.0" onAction="#onTextEnter" onKeyPressed="#onPdPQzPrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <TextField id="pd_pProjPr" fx:id="pd_pProjPr" layoutX="833.0" layoutY="581.0" onAction="#onTextEnter" onKeyPressed="#onPdPProjPrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <Label id="pd_plabelPres" fx:id="pd_plabelPres" layoutX="602.0" layoutY="644.0" text="Presentation" />
+                        <TextField id="pd_pPresM" fx:id="pd_pPresM" layoutX="749.0" layoutY="639.0" onAction="#onTextEnter" onKeyPressed="#onPdPPresMKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="pd_plabelViva" fx:id="pd_plabelViva" layoutX="602.0" layoutY="702.0" text="Viva" />
+                        <TextField id="pd_pVivaM" fx:id="pd_pVivaM" layoutX="749.0" layoutY="697.0" onAction="#onTextEnter" onKeyPressed="#onPdPVivaMKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <TextField id="pd_pPresPr" fx:id="pd_pPresPr" layoutX="833.0" layoutY="639.0" onAction="#onTextEnter" onKeyPressed="#onPdPPresPrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <TextField id="pd_pVivaPr" fx:id="pd_pVivaPr" layoutX="833.0" layoutY="697.0" onAction="#onTextEnter" onKeyPressed="#onPdPVivaPrKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="\%" />
+                        <Label id="valueDeadline" fx:id="valueDeadline" layoutX="123.0" layoutY="102.0" prefHeight="21.0" prefWidth="103.0" />
+                        <Label id="valueTOutOf" fx:id="valueTOutOf" layoutX="388.0" layoutY="228.0" prefHeight="31.0" prefWidth="28.0" />
+                        <Line id="pdVLine" fx:id="pdVLine" endX="60.47468566894531" endY="291.391845703125" layoutX="751.0" layoutY="251.0" rotate="90.0" startX="-573.6791381835938" startY="291.391845703125" styleClass="line" />
+                        <Label id="pd_labelTheory" fx:id="pd_labelTheory" layoutX="178.0" layoutY="222.0" prefHeight="21.0" prefWidth="56.0" text="Theory" />
+                        <Label id="pd_labelPractical" fx:id="pd_labelPractical" layoutX="753.0" layoutY="222.0" prefHeight="21.0" prefWidth="56.0" text="Practical" />
+                        <Line id="pdHLine" fx:id="pdHLine" endX="1110.0" endY="4.10198974609375" layoutY="157.0" startY="4.101985931396484" styleClass="line" />
+                        <Label id="labelPOutOf" fx:id="labelPOutOf" layoutX="1037.0" layoutY="228.0" prefHeight="31.0" prefWidth="44.0" text="/30" />
+                        <Label id="valuePOutOf" fx:id="valuePOutOf" layoutX="1009.0" layoutY="228.0" prefHeight="31.0" prefWidth="28.0" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane id="evaluate_anchor_pane" fx:id="evaluate_anchor_pane" disable="true" prefHeight="854.0" prefWidth="1112.0" visible="false">
+                    <children>
+                        <PrefixSelectionComboBox id="ev_college_combo_box" fx:id="ev_college_combo_box" editable="true" focusTraversable="false" layoutX="27.0" layoutY="14.0" onAction="#onCollegeSelection" prefHeight="31.0" prefWidth="271.0" promptText="Collge" />
+                        <PrefixSelectionComboBox id="ev_branch_combo_box" fx:id="ev_branch_combo_box" editable="true" focusTraversable="false" layoutX="27.0" layoutY="55.0" onAction="#onBranchSelection" prefHeight="31.0" prefWidth="271.0" promptText="Branch" />
+                        <PrefixSelectionComboBox id="ev_sub_combo_box" fx:id="ev_sub_combo_box" editable="true" focusTraversable="false" layoutX="422.0" layoutY="50.0" onAction="#onSubjectSelection" prefHeight="31.0" prefWidth="271.0" promptText="Subject" />
+                        <Label id="ev_tlabelInt1" fx:id="ev_tlabelInt1" layoutX="27.0" layoutY="296.0" text="Internal-1" />
+                        <TextField id="ev_tint1M" fx:id="ev_tInt1M" layoutX="174.0" layoutY="291.0" onAction="#onSubmit" onKeyPressed="#onEvTInt1KeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_tlabelInt2" fx:id="ev_tlabelInt2" layoutX="27.0" layoutY="354.0" text="Internal-2" />
+                        <TextField id="ev_tint2M" fx:id="ev_tInt2M" layoutX="174.0" layoutY="349.0" onAction="#onSubmit" onKeyPressed="#onEvTInt2KeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_tlabelAtd" fx:id="ev_tlabelAtd" layoutX="27.0" layoutY="412.0" text="Attendance" />
+                        <TextField id="ev_tAtdM" fx:id="ev_tAtdM" layoutX="174.0" layoutY="407.0" onAction="#onSubmit" onKeyPressed="#onEvTAtdKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <PrefixSelectionComboBox id="ev_sem_combo_box" fx:id="ev_sem_combo_box" editable="true" focusTraversable="false" layoutX="422.0" layoutY="9.0" onAction="#onSemSelection" prefHeight="14.0" prefWidth="88.0" promptText="Sem" />
+                        <Label id="ev_tlabelAsg" fx:id="ev_tlabelAsg" layoutX="27.0" layoutY="470.0" text="Assignment" />
+                        <TextField id="ev_tAsgM" fx:id="ev_tAsgM" layoutX="174.0" layoutY="465.0" onAction="#onSubmit" onKeyPressed="#onEvTAsgPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_tlabelQz" fx:id="ev_tlabelQz" layoutX="27.0" layoutY="528.0" text="Quiz" />
+                        <TextField id="ev_tQzM" fx:id="ev_tQzM" layoutX="174.0" layoutY="523.0" onAction="#onSubmit" onKeyPressed="#onEvTQzKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_tlabelProj" fx:id="ev_tlabelProj" layoutX="27.0" layoutY="586.0" text="Project" />
+                        <TextField id="ev_tProjM" fx:id="ev_tProjM" layoutX="174.0" layoutY="581.0" onAction="#onSubmit" onKeyPressed="#onEvTProjKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_tlabelPres" fx:id="ev_tlabelPres" layoutX="27.0" layoutY="644.0" text="Presentation" />
+                        <TextField id="ev_tPresM" fx:id="ev_tPresM" layoutX="174.0" layoutY="639.0" onAction="#onSubmit" onKeyPressed="#onEvTPresKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_plabelInt1" fx:id="ev_plabelInt1" layoutX="602.0" layoutY="296.0" text="Internal-1" />
+                        <TextField id="ev_pInt1M" fx:id="ev_pInt1M" layoutX="749.0" layoutY="291.0" onAction="#onSubmit" onKeyPressed="#onEvPInt1KeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_plabelInt2" fx:id="ev_plabelInt2" layoutX="602.0" layoutY="354.0" text="Internal-2" />
+                        <TextField id="ev_pInt2M" fx:id="ev_pInt2M" layoutX="749.0" layoutY="349.0" onAction="#onSubmit" onKeyPressed="#onEvPInt2KeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_plabelAtd" fx:id="ev_plabelAtd" layoutX="602.0" layoutY="412.0" text="Attendance" />
+                        <TextField id="ev_pAtdM" fx:id="ev_pAtdM" layoutX="749.0" layoutY="407.0" onAction="#onSubmit" onKeyPressed="#onEvPAtdKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_plabelAsg" fx:id="ev_plabelAsg" layoutX="602.0" layoutY="470.0" text="Assignment" />
+                        <TextField id="ev_pAsgM" fx:id="ev_pAsgM" layoutX="749.0" layoutY="465.0" onAction="#onSubmit" onKeyPressed="#onEvPAsgKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_plabelQz" fx:id="ev_plabelQz" layoutX="602.0" layoutY="528.0" text="Quiz" />
+                        <TextField id="ev_pQzM" fx:id="ev_pQzM" layoutX="749.0" layoutY="523.0" onAction="#onSubmit" onKeyPressed="#onEvPQzKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_plabelProj" fx:id="ev_plabelProj" layoutX="602.0" layoutY="586.0" text="Project" />
+                        <TextField id="ev_pProjM" fx:id="ev_pProjM" layoutX="749.0" layoutY="581.0" onAction="#onSubmit" onKeyPressed="#onEvPProjKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_plabelPres" fx:id="ev_plabelPres" layoutX="602.0" layoutY="644.0" text="Presentation" />
+                        <TextField id="ev_pPresM" fx:id="ev_pPresM" layoutX="749.0" layoutY="639.0" onAction="#onSubmit" onKeyPressed="#onEvPPresKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Label id="ev_plabelViva" fx:id="ev_plabelViva" layoutX="602.0" layoutY="702.0" text="Viva" />
+                        <TextField id="ev_pVivaM" fx:id="ev_pVivaM" layoutX="749.0" layoutY="697.0" onAction="#onSubmit" onKeyPressed="#onEvPVivaKeyPressed" prefHeight="31.0" prefWidth="63.0" promptText="Marks" />
+                        <Line id="evVLine" fx:id="evVLine" endX="60.47468566894531" endY="291.391845703125" layoutX="751.0" layoutY="251.0" rotate="90.0" startX="-573.6791381835938" startY="291.391845703125" styleClass="line" />
+                        <Label id="ev_labelTheory" fx:id="ev_labelTheory" layoutX="178.0" layoutY="222.0" prefHeight="21.0" prefWidth="56.0" text="Theory" />
+                        <Label id="ev_labelPractical" fx:id="ev_labelPractical" layoutX="753.0" layoutY="222.0" prefHeight="21.0" prefWidth="56.0" text="Practical" />
+                        <Line id="evHLine" fx:id="evHLine" endX="1112.0" endY="4.10198974609375" layoutX="1.0" layoutY="115.0" startY="4.101985931396484" styleClass="line" />
+                        <Button id="onFinalize" fx:id="onFinalize" focusTraversable="false" layoutX="1018.0" layoutY="789.0" mnemonicParsing="false" onAction="#onFinalize" onKeyPressed="#onEvFinalizeKeyPressed" prefHeight="51.0" prefWidth="83.0" styleClass="evaluateButton" text="Finalize" />
+                        <Button id="nxt_btn" fx:id="nxt_btn" focusTraversable="false" layoutX="1055.0" layoutY="139.0" mnemonicParsing="false" mouseTransparent="false" onAction="#onNxtBtn" prefHeight="31.0" prefWidth="17.0" styleClass="arrowBtn">
+                            <graphic>
+                                <MaterialDesignIconView id="rightArrow" fx:id="rightArrow" glyphName="ARROW_RIGHT" size="30.0" styleClass="arrow" />
+                            </graphic>
+                        </Button>
+                        <Button id="pre_btn" fx:id="pre_btn" focusTraversable="false" layoutX="19.0" layoutY="139.0" mnemonicParsing="false" mouseTransparent="false" onAction="#onPreBtn" prefHeight="31.0" prefWidth="17.0" styleClass="arrowBtn">
+                            <graphic>
+                                <MaterialDesignIconView id="leftArrow" fx:id="leftArrow" glyphName="ARROW_LEFT" size="30.0" styleClass="arrow" />
+                            </graphic>
+                        </Button>
+                        <Label id="labelName" fx:id="labelName" layoutX="105.0" layoutY="139.0" prefHeight="31.0" prefWidth="40.0" text="Name" />
+                        <Label id="valueOfName" fx:id="valueOfName" layoutX="174.0" layoutY="139.0" prefHeight="31.0" prefWidth="795.0" />
+                        <Label id="labelId" fx:id="labelId" layoutX="105.0" layoutY="179.0" prefHeight="31.0" prefWidth="40.0" text="Id" />
+                        <Label id="valueOfId" fx:id="valueOfId" layoutX="174.0" layoutY="179.0" prefHeight="31.0" prefWidth="795.0" />
+                        <TextField id="searchBox" fx:id="searchBox" layoutX="843.0" layoutY="81.0" onAction="#onSearch" onKeyPressed="#onEvSearchKeyPressed" prefHeight="31.0" prefWidth="256.0" promptText="Search Id" />
+                        <Button id="searchButton" fx:id="searchButton" layoutX="1066.0" layoutY="81.0" mnemonicParsing="false" onAction="#onSearch" prefHeight="31.0" prefWidth="28.0" styleClass="evaluateButton">
+                            <graphic>
+                                <FontAwesomeIconView id="searchImage" fx:id="searchImage" glyphName="SEARCH" size="15.0" />
+                            </graphic>
+                        </Button>
+                        <Button id="onSubmit" fx:id="onSubmit" focusTraversable="false" layoutX="913.0" layoutY="789.0" mnemonicParsing="false" onAction="#onSubmit" onKeyPressed="#onEvSubmitKeyPressed" prefHeight="51.0" prefWidth="83.0" styleClass="evaluateButton" text="Submit" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane id="report_anchor_pane" fx:id="report_anchor_pane" disable="true" prefHeight="854.0" prefWidth="1112.0" visible="false">
+                    <children>
+                        <PrefixSelectionComboBox id="rpt_college_combo_box" fx:id="rpt_college_combo_box" editable="true" focusTraversable="false" layoutX="27.0" layoutY="14.0" onAction="#onCollegeSelection" prefHeight="31.0" prefWidth="271.0" promptText="Collge" />
+                        <PrefixSelectionComboBox id="rpt_branch_combo_box" fx:id="rpt_branch_combo_box" editable="true" focusTraversable="false" layoutX="27.0" layoutY="55.0" onAction="#onBranchSelection" prefHeight="31.0" prefWidth="271.0" promptText="Branch" />
+                        <PrefixSelectionComboBox id="rpt_sub_combo_box" fx:id="rpt_sub_combo_box" editable="true" focusTraversable="false" layoutX="499.0" layoutY="55.0" onAction="#onSubjectSelection" prefHeight="31.0" prefWidth="271.0" promptText="Subject" />
+                        <RadioButton id="rbTheory" fx:id="rbTheory" layoutX="828.0" layoutY="19.0" mnemonicParsing="false" onAction="#onTheory" text="Theory">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="TP" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton id="rbPractical" fx:id="rbPractical" layoutX="828.0" layoutY="60.0" mnemonicParsing="false" onAction="#onPractical" text="Practical" toggleGroup="$TP" />
+                        <TableView id="rptTable" fx:id="rptTable" layoutX="27.0" layoutY="125.0" prefHeight="715.0" prefWidth="1066.0">
+                            <columns>
+                                <TableColumn id="column_id" fx:id="column_id" prefWidth="156.0" text="Id" />
+                                <TableColumn id="column_name" fx:id="column_name" minWidth="0.0" prefWidth="825.0" text="Name" />
+                                <TableColumn id="column_marks" fx:id="column_marks" minWidth="0.0" prefWidth="84.0" text="Marks(30)" />
+                            </columns>
+                        </TableView>
+                        <PrefixSelectionComboBox id="rpt_sem_combo_box" fx:id="rpt_sem_combo_box" editable="true" focusTraversable="false" layoutX="499.0" layoutY="14.0" onAction="#onSemSelection" prefHeight="14.0" prefWidth="88.0" promptText="Sem" />
+                        <Button id="DwnldPDF" fx:id="DwnldPDF" focusTraversable="false" layoutX="1038.0" layoutY="52.0" mnemonicParsing="false" onAction="#onDwnldEX" prefHeight="38.0" prefWidth="55.0" styleClass="rpt_btn">
+                            <graphic>
+                                <MaterialIconView glyphName="FILE_DOWNLOAD" size="25.0" />
+                            </graphic>
+                     <tooltip>
+                        <Tooltip id="ttDownload" fx:id="ttDownload" text="Download" />
+                     </tooltip>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            <Button id="btnChangePassword" fx:id="btnChangePassword" layoutX="1073.0" layoutY="-2.0" mnemonicParsing="false" onAction="#onChangePassword">
+               <graphic>
+                  <MaterialDesignIconView glyphName="SETTINGS" size="22.0" styleClass="left_of_split_icons" />
+               </graphic>
+               <tooltip>
+                  <Tooltip id="ttSettings" fx:id="ttSettings" text="Settings" />
+               </tooltip>
+            </Button>
+            </children>
+        </AnchorPane>
+    </items>
+</SplitPane>

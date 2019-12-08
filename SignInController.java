@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package admin;
+package evaluator;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -86,20 +86,20 @@ public class SignInController implements Initializable {
 
     @FXML
     private void onSignIn(ActionEvent event) throws IOException {
-        if(acExists() && isAdmin()){
-            new AdminController().setEmail(emailField.getText());
-            AdminDriver.copyStage.close();
+        if(acExists()){
+            new EvaluatorController().setEmail(emailField.getText());
+            EvaluatorDriver.copyStage.close();
             Stage stage = new Stage();
-            Parent root = (Parent) FXMLLoader.load(getClass().getResource("Admin.fxml"));
+            Parent root = (Parent) FXMLLoader.load(getClass().getResource("Evaluator.fxml"));
             Scene scene = new Scene(root);
-            String css = this.getClass().getResource("Admin.css").toExternalForm();
+            String css = this.getClass().getResource("Evaluator.css").toExternalForm();
             scene.getStylesheets().addAll(css);
-            stage.getIcons().add(new Image("file:C:\\Users\\VASPAR ASPI\\Documents\\NetBeansProjects\\Admin\\dist\\Admin.png"));
+            stage.getIcons().add(new Image("file:C:\\Users\\VASPAR ASPI\\Documents\\NetBeansProjects\\Evaluator\\dist\\Evaluator.png"));
             stage.setScene(scene);
-            stage.setTitle("Admin");
+            stage.setTitle("Evaluator");
             stage.setResizable(false);
-            stage.setWidth(1320.0);
-            stage.setHeight(879.0);
+            stage.setWidth(1260.0);
+            stage.setHeight(891.0);
             stage.show();
         }
         else{
@@ -108,6 +108,7 @@ public class SignInController implements Initializable {
                 a.setTitle("Error");
                 a.show();
         }
+        
     }
     
     @FXML
@@ -118,14 +119,11 @@ public class SignInController implements Initializable {
                 emailField.selectAll();
         }
     }
-    
-    public boolean isAdmin(){
-        return "admin@gmail.com".equals(emailField.getText());
-    }
+
     public boolean acExists() {
         try {
             String sql = "SELECT `EMAIL`, `PASSWORD` FROM `CSPIT`.`CE_EV_SIGN` WHERE `EMAIL`=? AND `PASSWORD`=? ";
-            prstmt = con.prepareStatement(sql);
+            prstmt = con.prepareCall(sql);
             prstmt.setString(1, emailField.getText());
             prstmt.setString(2, getMd5(passwordField.getText()));
             rs = prstmt.executeQuery();
@@ -166,5 +164,4 @@ public class SignInController implements Initializable {
             throw new RuntimeException(e); 
         } 
     } 
-
 }

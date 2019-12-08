@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package admin;
+package evaluator;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,5 +18,4 @@ public class DBConnection {
            //Class.forName("com.mysql.jdbc.Driver");
            return DriverManager.getConnection("jdbc:mysql://sgp-2.ckltggvsspz7.ap-south-1.rds.amazonaws.com:3306/","admin","12345678");
      }
-    
 }

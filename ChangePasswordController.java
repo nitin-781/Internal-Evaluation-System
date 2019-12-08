@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package admin;
+package evaluator;
 
 import java.math.BigInteger;
 import java.net.URL;
@@ -50,7 +50,7 @@ public class ChangePasswordController implements Initializable {
     ResultSet rs = null;
     
     Alert a=new Alert(Alert.AlertType.NONE);
-
+    
     /**
      * Initializes the controller class.
      *
@@ -83,9 +83,10 @@ public class ChangePasswordController implements Initializable {
             String sql = "UPDATE `CSPIT`.`CE_EV_SIGN` SET `PASSWORD`=? WHERE `EMAIL`=? AND `PASSWORD`=?";
             prstmt=con.prepareCall(sql);
             prstmt.setString(1, getMd5(newPasswordField.getText()));
-            prstmt.setString(2, new AdminController().getEmail());
+            prstmt.setString(2, new EvaluatorController().getEmail());
             prstmt.setString(3, getMd5(oldPasswordField.getText()));
             int row=prstmt.executeUpdate();
+            System.out.println(row);
             if(row==0){
                 
                 a.setAlertType(Alert.AlertType.ERROR);
@@ -107,7 +108,7 @@ public class ChangePasswordController implements Initializable {
         }
     }
     
-     public static String getMd5(String input) 
+    public static String getMd5(String input) 
     { 
         try { 
   
