@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.PrefixSelectionComboBox?>
+
+<SplitPane dividerPositions="0.09538461538461539" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="832.0" prefWidth="1302.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.AdminController">
+    <items>
+        <AnchorPane id="left_of_split" fx:id="left_of_split" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="139.0">
+            <children>
+                <VBox id="left_of_split_vbox" fx:id="left_of_split_vbox" focusTraversable="true" prefHeight="830.0" prefWidth="130.0" style="-fx-background-color: TRANSPARENT;">
+                    <children>
+                        <Button id="evaluator" fx:id="evaluator" contentDisplay="TOP" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleEvaluatorAction" prefHeight="118.0" prefWidth="129.0" styleClass="left_of_split_buttons" text=" Evaluator" textFill="#190661">
+                            <graphic>
+                                <FontAwesomeIconView id="evaluator_icon" fx:id="evaluator_icon" fill="#050236" fontSmoothingType="LCD" glyphName="USER_PLUS" size="50" styleClass="left_of_split_icons" />
+                            </graphic>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <font>
+                                <Font name="Calibri Bold" size="22.0" />
+                            </font>
+                        </Button>
+                        <Button id="student" fx:id="student" alignment="CENTER" contentDisplay="TOP" focusTraversable="false" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleStudentAction" prefHeight="118.0" prefWidth="129.0" styleClass="left_of_split_buttons" text="Student" textFill="#190661">
+                            <graphic>
+                                <FontAwesomeIconView id="student_icon" fx:id="student_icon" fill="#050236" fontSmoothingType="LCD" glyphName="GROUP" size="50" styleClass="left_of_split_icons" />
+                            </graphic>
+                            <font>
+                                <Font name="Calibri Bold" size="22.0" />
+                            </font>
+                        </Button>
+                        <Button id="report" fx:id="report" alignment="CENTER" contentDisplay="TOP" focusTraversable="false" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleReportAction" prefHeight="118.0" prefWidth="129.0" styleClass="left_of_split_buttons" text="Report" textFill="#190661">
+                            <font>
+                                <Font name="Calibri Bold" size="22.0" />
+                            </font>
+                            <graphic>
+                                <MaterialDesignIconView id="report_icon" fx:id="report_icon" fill="#050236" glyphName="FILE" size="50" styleClass="left_of_split_icons" />
+                            </graphic>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <AnchorPane id="right_of_split" fx:id="right_of_split" minHeight="0.0" minWidth="0.0" prefHeight="830.0" prefWidth="1178.0">
+            <children>
+                <AnchorPane id="evaluator_anchor_pane" fx:id="evaluator_anchor_pane" disable="true" prefHeight="832.0" prefWidth="1172.0" visible="false">
+                    <children>
+                        <TableView id="table" fx:id="table" editable="true" layoutX="8.0" layoutY="43.0" prefHeight="540.0" prefWidth="1156.0" tableMenuButtonVisible="true">
+                            <columns>
+                                <TableColumn id="column_no" fx:id="column_no" prefWidth="38.0" text="No." />
+                                <TableColumn id="column_college" fx:id="column_college" prefWidth="94.0" text="College " />
+                                <TableColumn id="column_branch" fx:id="column_branch" prefWidth="55.0" text="Branch" />
+                                <TableColumn id="column_sem" fx:id="column_sem" prefWidth="41.0" text="Sem" />
+                                <TableColumn id="column_name" fx:id="column_name" prefWidth="314.0" text="Name" />
+                                <TableColumn id="column_email" fx:id="column_email" prefWidth="222.0" text="Email" />
+                                <TableColumn id="column_sub_code" fx:id="column_sub_code" minWidth="0.0" prefWidth="76.0" text="Sub Code" />
+                                <TableColumn id="column_sub_name" fx:id="column_sub_name" prefWidth="253.0" text="Sub Name" />
+                                <TableColumn id="column_tp" fx:id="column_tp" prefWidth="41.0" text="T/P" />
+                                <TableColumn id="column_deadline" fx:id="column_deadline" prefWidth="78.0" text="Deadline" />
+                            </columns>
+                        </TableView>
+                        <TextField id="name_text_field" fx:id="name_text_field" layoutX="8.0" layoutY="596.0" prefHeight="25.0" prefWidth="366.0" promptText="Name" />
+                        <TextField id="email_text_field" fx:id="email_text_field" layoutX="8.0" layoutY="647.0" prefHeight="25.0" prefWidth="366.0" promptText="Email" />
+                        <TextField id="sub_name_text_field" fx:id="sub_name_text_field" layoutX="8.0" layoutY="705.0" prefHeight="31.0" prefWidth="281.0" promptText="Subject Name" />
+                        <TextField id="sub_code_text_field" fx:id="sub_code_text_field" layoutX="11.0" layoutY="759.0" prefHeight="23.0" prefWidth="170.0" promptText="Subject Code" />
+                        <PrefixSelectionComboBox id="college_combo_box" fx:id="ev_college_combo_box" editable="true" focusTraversable="false" layoutX="480.0" layoutY="596.0" onAction="#onCollegeSelection" prefHeight="31.0" prefWidth="271.0" promptText="College" />
+                        <PrefixSelectionComboBox id="branch_combo_box" fx:id="ev_branch_combo_box" editable="true" focusTraversable="false" layoutX="480.0" layoutY="647.0" onAction="#onBranchSelection" prefHeight="31.0" prefWidth="271.0" promptText="Branch" />
+                        <PrefixSelectionComboBox id="sem_combo_box" fx:id="ev_sem_combo_box" editable="true" focusTraversable="false" layoutX="480.0" layoutY="705.0" onAction="#onSemSelection" prefHeight="14.0" prefWidth="88.0" promptText="Sem" />
+                        <DatePicker id="date_picker" fx:id="date_picker" layoutX="480.0" layoutY="759.0" promptText="Deadline" showWeekNumbers="true" />
+                        <CheckBox id="theory_cb" fx:id="theory_cb" layoutX="846.0" layoutY="596.0" mnemonicParsing="false" onAction="#onTheorySelect" prefHeight="31.0" prefWidth="95.0" text="Theory" />
+                        <CheckBox id="practical_cb" fx:id="practical_cb" layoutX="846.0" layoutY="647.0" mnemonicParsing="false" onAction="#onTheorySelect" prefHeight="31.0" prefWidth="95.0" text="Practical" />
+                        <Button id="add_button" fx:id="add_button" focusTraversable="false" layoutX="956.0" layoutY="775.0" mnemonicParsing="false" onAction="#onButtonAdd" prefHeight="43.0" prefWidth="95.0" text="Add" />
+                        <Button id="delete_button" fx:id="delete_button" disable="false" focusTraversable="false" layoutX="1069.0" layoutY="776.0" mnemonicParsing="false" onAction="#onButtonDelete" prefHeight="43.0" prefWidth="95.0" text="Delete" />
+                    </children>                
+                </AnchorPane>
+                <AnchorPane id="student_anchor_pane" fx:id="student_anchor_pane" disable="true" prefHeight="832.0" prefWidth="1172.0" visible="false">
+                    <children>
+                        <Button id="stu_add_button" fx:id="stu_add_button" focusTraversable="false" layoutX="970.0" layoutY="85.0" mnemonicParsing="false" onAction="#onStu_add_btn" prefHeight="38.0" prefWidth="55.0" styleClass="stu_btn">
+                            <graphic>
+                                <MaterialIconView glyphName="ADD_CIRCLE_OUTLINE" size="25.0" />
+                            </graphic>
+                     <tooltip>
+                        <Tooltip id="ttAddRow" fx:id="ttAddRow" text="Add Row" />
+                     </tooltip>
+                        </Button>
+                        <PrefixSelectionComboBox id="stu_college_combo_box" fx:id="stu_college_combo_box" editable="true" focusTraversable="false" layoutX="36.0" layoutY="29.0" onAction="#onCollegeSelection" prefHeight="31.0" prefWidth="271.0" promptText="Collge" />
+                        <PrefixSelectionComboBox id="stu_branch_combo_box" fx:id="stu_branch_combo_box" editable="true" focusTraversable="false" layoutX="36.0" layoutY="85.0" onAction="#onBranchSelection" prefHeight="31.0" prefWidth="271.0" promptText="Branch" />
+                        <TableView id="tree_table" fx:id="tree_table" editable="true" layoutX="36.0" layoutY="139.0" prefHeight="663.0" prefWidth="1119.0" tableMenuButtonVisible="true">
+                            <columns>
+                                <TableColumn id="column_tree_no" fx:id="column_tree_no" prefWidth="81.0" text="No" />
+                                <TableColumn id="column_tree_id" fx:id="column_tree_id" prefWidth="265.0" text="Id" />
+                                <TableColumn id="column_tree_name" fx:id="column_tree_name" prefWidth="771.0" text="Name" />
+                            </columns>
+                        </TableView>
+                        <Button id="dbSaveBtn" fx:id="dbSaveBtn" layoutX="1054.0" layoutY="85.0" mnemonicParsing="false" onAction="#onDBSaveBtn" prefHeight="31.0" prefWidth="55.0" styleClass="stu_btn">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="SAVE" size="25.0" />
+                            </graphic>
+                     <tooltip>
+                        <Tooltip id="ttSave" fx:id="ttSave" text="Save" />
+                     </tooltip>
+                        </Button>
+                        <Button id="importEX" fx:id="importEX" layoutX="1054.0" layoutY="29.0" mnemonicParsing="false" onAction="#onImportEX" prefHeight="38.0" prefWidth="55.0" styleClass="stu_btn" AnchorPane.rightAnchor="63.0">
+                            <graphic>
+                                <MaterialIconView glyphName="INPUT" size="25.0" />
+                            </graphic>
+                     <tooltip>
+                        <Tooltip id="ttImport" fx:id="ttImport" text="Import Sheet" />
+                     </tooltip>
+                        </Button>
+                        <Button id="dwnldEX" fx:id="dwnldEX" layoutX="970.0" layoutY="29.0" mnemonicParsing="false" onAction="#onDwnldEX" prefHeight="38.0" prefWidth="55.0" styleClass="stu_btn" AnchorPane.rightAnchor="147.0">
+                            <graphic>
+                                <MaterialIconView glyphName="FILE_DOWNLOAD" size="25.0" />
+                            </graphic>
+                     <tooltip>
+                        <Tooltip id="ttDownload" fx:id="ttDownload" text="Download Sheet" />
+                     </tooltip>
+                        </Button>
+                        <PrefixSelectionComboBox id="stu_sem_combo_box" fx:id="stu_sem_combo_box" editable="true" focusTraversable="false" layoutX="351.0" layoutY="29.0" onAction="#onSemSelection" prefHeight="14.0" prefWidth="88.0" promptText="Sem" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane id="report_anchor_pane" fx:id="report_anchor_pane" disable="true" layoutY="8.0" prefHeight="832.0" prefWidth="1172.0" visible="false">
+                    <children>
+                  <Button id="button_export" fx:id="export_button" layoutX="1006.0" layoutY="94.0" mnemonicParsing="false" onAction="#onExport" prefHeight="38.0" prefWidth="55.0" styleClass="stu_btn">
+                     <graphic>
+                        <MaterialIconView glyphName="FILE_DOWNLOAD" size="25.0" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip id="ttRptDownload" fx:id="ttRptDownload" text="Download Sheet" />
+                     </tooltip>
+                  </Button>
+                        <PrefixSelectionComboBox id="rpt_college_combo_box" fx:id="rpt_college_combo_box" editable="true" focusTraversable="false" layoutX="36.0" layoutY="29.0" onAction="#onCollegeSelection" prefHeight="31.0" prefWidth="271.0" promptText="Collge" />
+                        <PrefixSelectionComboBox id="rpt_branch_combo_box" fx:id="rpt_branch_combo_box" editable="true" focusTraversable="false" layoutX="36.0" layoutY="85.0" onAction="#onBranchSelection" prefHeight="31.0" prefWidth="271.0" promptText="Branch" />
+                        <Button id="revaluate_button" fx:id="revaluate_button" focusTraversable="false" layoutX="1100.0" layoutY="94.0" mnemonicParsing="false" onAction="#onRevaluate" prefHeight="38.0" prefWidth="55.0" styleClass="stu_btn">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="25.0" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip id="ttRevaluate" fx:id="ttRevaluate" text="Revaluate" />
+                     </tooltip></Button>
+                        <PrefixSelectionComboBox id="rpt_sem_combo_box" fx:id="rpt_sem_combo_box" editable="true" focusTraversable="false" layoutX="429.0" layoutY="29.0" onAction="#onSemSelection" prefHeight="14.0" prefWidth="88.0" promptText="Sem" />
+                        <PrefixSelectionComboBox id="rpt_subject_combo_box" fx:id="rpt_subject_combo_box" editable="true" focusTraversable="false" layoutX="429.0" layoutY="85.0" onAction="#onSubjectSelection" prefHeight="31.0" prefWidth="271.0" promptText="Subject" />
+                  <RadioButton id="rbTheory" fx:id="rbTheory" layoutX="792.0" layoutY="34.0" mnemonicParsing="false" onAction="#onTheory" text="Theory">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="TP" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton id="rbPractical" fx:id="rbPractical" layoutX="792.0" layoutY="68.0" mnemonicParsing="false" onAction="#onPractical" text="Practical" toggleGroup="$TP" />
+                  <RadioButton id="rbOverall" fx:id="rbOverall" layoutX="792.0" layoutY="102.0" mnemonicParsing="false" onAction="#onOverall" text="Overall" toggleGroup="$TP" />
+                  <TableView id="rpt_table" fx:id="rpt_table" disable="true" layoutX="36.0" layoutY="145.0" prefHeight="663.0" prefWidth="1119.0" tableMenuButtonVisible="true" visible="false">
+                    <columns>
+                      <TableColumn id="column_rpt_id" fx:id="column_rpt_id" editable="false" prefWidth="127.0" text="Id" />
+                      <TableColumn id="column_rpt_name" fx:id="column_rpt_name" editable="false" prefWidth="318.0" text="Name" />
+                        <TableColumn id="column_rpt_int1" fx:id="column_rpt_int1" editable="false" prefWidth="102.0" text="Internal-1" />
+                        <TableColumn id="column_rpt_int2" fx:id="column_rpt_int2" editable="false" prefWidth="97.0" text="Internal-2" />
+                        <TableColumn id="column_rpt_atd" fx:id="column_rpt_atd" editable="false" prefWidth="97.0" text="Attendance" />
+                        <TableColumn id="column_rpt_asg" fx:id="column_rpt_asg" editable="false" prefWidth="98.0" text="Assignment" />
+                        <TableColumn id="column_rpt_qz" fx:id="column_rpt_qz" editable="false" prefWidth="59.0" text="Quiz" />
+                        <TableColumn id="column_rpt_proj" fx:id="column_rpt_proj" editable="false" prefWidth="75.0" text="Project" />
+                        <TableColumn id="column_rpt_pres" fx:id="column_rpt_pres" editable="false" prefWidth="96.0" text="Presentation" />
+                        <TableColumn id="column_rpt_viva" fx:id="column_rpt_viva" editable="false" prefWidth="49.0" text="Viva" />
+                        <TableColumn id="column_rpt_marks" fx:id="column_rpt_marks" editable="false" prefWidth="75.0" text="Marks(30)" />
+                    </columns>
+                  </TableView>
+                  <TableView id="rpt_table1" fx:id="rpt_table1" disable="true" layoutX="36.0" layoutY="145.0" prefHeight="663.0" prefWidth="1119.0" visible="false" />
+                    </children>
+                </AnchorPane>
+            <Button id="btnChangePassword" fx:id="btnChangePassword" layoutX="1130.0" layoutY="-1.0" mnemonicParsing="false" onAction="#onChangePassword">
+               <graphic>
+                  <MaterialDesignIconView glyphName="SETTINGS" size="22.0" styleClass="left_of_split_icons" />
+               </graphic>
+               <tooltip>
+                  <Tooltip id="ttSettings" fx:id="ttSettings" text="Settings" />
+               </tooltip>
+            </Button>
+            </children>
+        </AnchorPane>
+    </items>
+</SplitPane>
